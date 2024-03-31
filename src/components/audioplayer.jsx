@@ -52,7 +52,8 @@ function audioplayer() {
   
   return (
     <div>
-      <div>
+      <div className="row">
+      <div className='flex col-md-6 align-center p-3'>
         <label htmlFor="chapter-select">Select a Quran Chapter:</label>
         <select id="chapter-select" onChange={handleChapterSelect} value={selectedChapterId}>
             <option value="">Select Chapter</option>
@@ -62,7 +63,8 @@ function audioplayer() {
             </option>
             ))}
         </select>
-
+      </div>
+      <div className='flex col-md-6 align-center p-3'>
         <label htmlFor="qari-select">Select a Reciter/Qari:</label>
         <select id="qari-select"onChange={handleReciterSelect} value={selectedReciterId}>
             <option value="">Select Qari</option>
@@ -72,13 +74,15 @@ function audioplayer() {
             </option>
             ))}
         </select>
-
-        <button className="btn btn-success" onClick={getAudio} disabled={!selectedChapterId}>
+      </div>
+      </div>
+      <div className='p-3'>
+        <button className="btn btn-success col-12" onClick={getAudio} disabled={!selectedChapterId}>
             Find Audio
         </button>
       </div>
 
-      <div>
+      <div className='p-3 col-12 align-center'>
         {audioUrl && (
         <audio controls ref={audioRef} onLoadedData={handleAudioChange}>
             <source src={audioUrl} type="audio/mp3" />
